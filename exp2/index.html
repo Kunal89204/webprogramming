@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Languages</title>
+
+    <!-- Import Font Awesome and Google Fonts -->
+    <script src="https://kit.fontawesome.com/394111977c.js" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        /* Global styles */
+        body {
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+        }
+
+        .blocks {
+            display: grid;
+            grid-template-rows: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            padding: 2rem;
+        }
+
+        .cards {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .cards:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2C3E50;
+            margin-bottom: 0.5rem;
+        }
+
+        .content {
+            font-size: 1rem;
+            color: #7f8c8d;
+            line-height: 1.5;
+        }
+
+        .icon {
+            font-size: 2.5rem;
+            /* color: #3498db; */
+            margin-bottom: 1rem;
+        }
+
+        /* Add media query for responsive design */
+        @media (max-width: 768px) {
+            .blocks {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="blocks">
+        <div class="cards">
+            <i class="fab fa-python icon"></i>
+            <p class="title">Python</p>
+            <p class="content">Python is a high-level language known for its simplicity and readability.</p>
+        </div>
+        <div class="cards">
+            <i class="fab fa-js-square icon"></i>
+            <p class="title">JavaScript</p>
+            <p class="content">JavaScript is a versatile language primarily used for web development.</p>
+        </div>
+        <div class="cards">
+            <i class="fab fa-java icon"></i>
+            <p class="title">Java</p>
+            <p class="content">Java is a class-based, object-oriented language used in many enterprise applications.</p>
+        </div>
+        <div class="cards">
+            <i class="fas fa-cogs icon"></i>
+            <p class="title">C++</p>
+            <p class="content">C++ is an extension of C, widely used for system software and game development.</p>
+        </div>
+        <div class="cards">
+            <i class="fas fa-gem icon"></i>
+            <p class="title">Ruby</p>
+            <p class="content">Ruby is a dynamic, open-source language with a focus on simplicity and productivity.</p>
+        </div>
+        <div class="cards">
+            <i class="fab fa-google icon"></i>
+            <p class="title">Golang</p>
+            <p class="content">Go, or Golang, is a statically typed, open-source language designed for efficiency and scalability.</p>
+        </div>
+    </div>
+</body>
+</html>
