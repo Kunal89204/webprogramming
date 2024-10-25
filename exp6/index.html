@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Changer App</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        h1{
+            margin-bottom: 2rem;
+            text-decoration: underline;
+        }
+        p,label{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 20px;
+        }
+       button{
+        background-color: blue;
+        color: white;
+        border: none;
+        padding: 1rem;
+        border-radius: 25px;
+       }
+       input{
+        padding: 1rem;
+        font-size: 18px;
+        font-family: cursive;
+        background-color: rgb(220, 220, 220);
+       }
+       button:hover{
+        transform: translateY(-2px);
+       }
+       button:active{
+        background-color: black;
+       }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Color Changer App</h1>
+    <p>Type your favorite color and click "Change Background" to see it in action!</p>
+
+    <div class="color-input">
+        <label for="color">Enter Color : </label>
+        <input type="text" id="color" placeholder="e.g., blue" />
+        <button onclick="changeColor()">Change Background</button>
+    </div>
+
+    <div class="result" id="result-message"></div>
+    <script>
+        window.onload = function() { 
+            document.getElementById("result-message").innerText = "Enter a color to change the background!";
+        };
+    
+        function changeColor() {
+            let color = document.getElementById("color").value;
+            
+            if (color) {
+                document.body.style.backgroundColor = color;
+                document.getElementById("result-message").innerText = `Background changed to ${color}`;
+            } else {
+                alert("Please enter a valid color!"); 
+            }
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to top right, lightblue, lavender);
+            font-family: Arial, sans-serif;
+        }
+        .converter {
+            padding: 2rem;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px;
+        }
+        input, select, button {
+            margin: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            width: 100%;
+        }
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="converter">
+        <h1>Unit Converter</h1>
+        <input type="number" id="inputValue" placeholder="Enter value" />
+        <select id="inputUnit">
+            <option value="km">Kilometers</option>
+            <option value="miles">Miles</option>
+            <option value="meters">Meters</option>
+        </select>
+        <select id="outputUnit">
+            <option value="km">Kilometers</option>
+            <option value="miles">Miles</option>
+            <option value="meters">Meters</option>
+        </select>
+        <button onclick="convert()">Convert</button>
+        <div class="result" id="result">Result: </div>
+    </div>
+
+    <script>
+        function convert() {
+            const inputValue = parseFloat(document.getElementById("inputValue").value);
+            const inputUnit = document.getElementById("inputUnit").value;
+            const outputUnit = document.getElementById("outputUnit").value;
+            let valueInMeters;
+
+            if (isNaN(inputValue)) {
+                document.getElementById("result").textContent = "Please enter a valid number.";
+                return;
+            }
+
+            switch(inputUnit) {
+                case "km":
+                    valueInMeters = inputValue * 1000;
+                    break;
+                case "miles":
+                    valueInMeters = inputValue * 1609.34;
+                    break;
+                case "meters":
+                    valueInMeters = inputValue;
+                    break;
+            }
+
+            let convertedValue;
+            switch(outputUnit) {
+                case "km":
+                    convertedValue = valueInMeters / 1000;
+                    break;
+                case "miles":
+                    convertedValue = valueInMeters / 1609.34;
+                    break;
+                case "meters":
+                    convertedValue = valueInMeters;
+                    break;
+            }
+
+            document.getElementById("result").textContent = `Result: ${convertedValue.toFixed(2)} ${outputUnit}`;
+        }
+    </script>
+</body>
+</html>
