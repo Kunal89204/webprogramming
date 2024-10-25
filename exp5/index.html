@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            height: 100vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to top left,pink,skyblue);
+        }
+        .temperature-card{
+            border: 1px solid black;
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            gap: 1.5rem;
+            background: linear-gradient(blue, black);
+        }
+        .row1, .row2, .row3{
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+        .result{
+            border: none;
+            height: 3rem;
+            color: white;
+            font-weight: bold;
+            border-radius: 12px;
+            padding: 0.5rem 1rem;
+            font-size: 25px;
+            text-align: center;
+            background-color: rgb(43, 42, 42);
+        }
+        label{
+            color: rgb(255, 255, 255);
+        }
+        input, select{
+            padding: 0.4rem;
+            border: none;
+            border-radius: 12px;
+            padding: 0.2rem 1rem;
+            font-weight: bold;
+        }
+        button{
+            padding: 0.3rem;
+            font-size: 17px;
+            border: none;
+            border-radius: 15px;
+            background-color: greenyellow;
+            font-weight: bold;
+        }
+        button:hover{
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <p>Temperature Converter</p>
+    <div class="temperature-card">
+        <div class="row1">
+            <label for="Degrees">Degrees</label>
+            <input type="number" id="Degrees">
+        </div>
+        <div class="row2">
+            <label for="Type">Type</label>
+           <select name="Type" id="Type">
+            <option value="F">Fahrenheit</option>
+            <option value="C">Celsius</option>
+           </select>
+        </div>
+        <button>Convert</button>
+        <div class="row3">
+            <label for="result">Result</label>
+            <div class="result"></div>
+        </div>
+    </div>
+    <script>
+        document.querySelector('button').addEventListener('click', function() {
+            const degrees = parseFloat(document.getElementById('Degrees').value);
+            const type = document.getElementById('Type').value;
+            let result;
+    
+            if (isNaN(degrees)) {
+                result = "Please enter a valid number";
+            } else {
+                if (type === 'F') {
+                    result = ((degrees - 32) * 5/9).toFixed(2) + ' °C';
+                } else {
+                    result = ((degrees * 9/5) + 32).toFixed(2) + ' °F';
+                }
+            }
+    
+            document.querySelector('.result').textContent = result;
+        });
+    </script>    
+</body>
+</html>
